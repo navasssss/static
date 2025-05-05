@@ -6,12 +6,22 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 })->name('home');
+Route::get('/ich-stability-studies', function () {
+    return view('pages.ich-stability-studies');
+})->name('ich');
+Route::get('/microbiology-testing', function () {
+    return view('pages.microbiology-testing');
+})->name('micro');
+Route::get('/packaging-material-testing', function () {
+    return view('pages.packaging-material-testing');
+})->name('package');
+Route::get('/physico-chemical-characterization', function () {
+    return view('pages.physico-chemical-characterization');
+})->name('physico');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
